@@ -1,0 +1,24 @@
+name: "Bruh x stars"
+
+on:
+  push:
+  fork:
+  watch:
+    types: [started]
+  schedule:
+    - cron: "0 * * * *"
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update description
+        uses: ouuan/This-repo-has-x-stars-y-forks-action@v2
+        with:
+          token: ${{ secrets.TOKEN }}
+          template: 'DumaDarkwa: <auto>.'
+      - name: Update name
+        uses: ouuan/This-repo-has-x-stars-y-forks-action@v2
+        with:
+          token: ${{ secrets.TOKEN }}
+          type: name
